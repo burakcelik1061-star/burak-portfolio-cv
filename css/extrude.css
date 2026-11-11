@@ -1,0 +1,23 @@
+/* Extruded type: sixteen stacked shadows whose direction follows --dx / --dy,
+   which hero.js drives from the pointer so the depth turns with the tilt. */
+.ex{
+  --dx:.5;--dy:.8;--exk:1;--exc:#0B1E8A;
+  text-shadow:
+    calc(var(--dx)*var(--exk)*1px) calc(var(--dy)*var(--exk)*1px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*2px) calc(var(--dy)*var(--exk)*2px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*3px) calc(var(--dy)*var(--exk)*3px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*4px) calc(var(--dy)*var(--exk)*4px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*5px) calc(var(--dy)*var(--exk)*5px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*6px) calc(var(--dy)*var(--exk)*6px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*7px) calc(var(--dy)*var(--exk)*7px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*8px) calc(var(--dy)*var(--exk)*8px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*9px) calc(var(--dy)*var(--exk)*9px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*10px) calc(var(--dy)*var(--exk)*10px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*11px) calc(var(--dy)*var(--exk)*11px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*12px) calc(var(--dy)*var(--exk)*12px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*13px) calc(var(--dy)*var(--exk)*13px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*14px) calc(var(--dy)*var(--exk)*14px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*15px) calc(var(--dy)*var(--exk)*15px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*16px) calc(var(--dy)*var(--exk)*16px) 0 var(--exc),
+    calc(var(--dx)*var(--exk)*30px) calc(var(--dy)*var(--exk)*30px) calc(var(--exk)*34px) rgba(4,10,60,.55);
+}

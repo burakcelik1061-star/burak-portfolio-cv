@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr" data-world="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burak Çelik Portfolyo</title>
+<meta name="description" content="Burak Çelik, yazılım geliştirici. Web uygulamaları, backend servisleri ve sıfırdan yazılmış sistemler.">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js-load")</script>
+<link rel="preload" href="fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/extrude.css">
+<link rel="stylesheet" href="css/effects.css">
+<link rel="stylesheet" href="css/chrome.css">
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-half ld-top"></div><div class="ld-half ld-bot"></div>
+  <div class="ld-mid">
+    <div class="ld-mono"><span>B</span><span>Ç</span></div>
+    <div class="ld-num"><b id="ld-n">0</b><i>%</i></div>
+    <div class="ld-bar"><i id="ld-bar"></i></div>
+  </div>
+</div>
+<div class="cur" id="cur" aria-hidden="true"><i></i><span id="cur-l"></span></div>
+
+<header class="top">
+  <a class="mark" href="#top">Burak Çelik</a>
+  <div class="plate" aria-hidden="true"><span><span data-i18n="plate.word">Dünya</span> <b id="plate-n">1</b> / 6</span><b id="plate-name">Giriş</b></div>
+  <nav aria-label="Bölümler" data-i18n-aria="nav.label">
+    <a href="#about" data-i18n="nav.about">Hakkımda</a>
+    <a href="#projects" data-i18n="nav.projects">Projeler</a>
+    <a href="#skills" data-i18n="nav.skills">Yetenekler</a>
+    <a href="#milestones" data-i18n="nav.path">Kilometre taşları</a>
+    <a href="#contact" data-i18n="nav.contact">İletişim</a>
+  </nav>
+  <button class="chip-btn" type="button" id="term-open" aria-haspopup="dialog">Terminal</button>
+  <div class="lang" role="group" aria-label="Dil / Language">
+    <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
+    <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<nav class="dots" id="dots" aria-hidden="true">
+  <a href="#top" tabindex="-1"><i></i></a><a href="#about" tabindex="-1"><i></i></a><a href="#projects" tabindex="-1"><i></i></a>
+  <a href="#skills" tabindex="-1"><i></i></a><a href="#milestones" tabindex="-1"><i></i></a><a href="#contact" tabindex="-1"><i></i></a>
+</nav>
+
+<main>
+  <section class="hero w0" id="top" data-sec data-name-tr="Giriş" data-name-en="Intro">
+    <p class="role" data-i18n="hero.role">Yazılım geliştirici</p>
+    <h1 class="name" aria-label="Burak Çelik">
+      <span class="tilt" id="tilt" aria-hidden="true">
+        <span class="ln"><span class="w ex">Burak</span></span>
+        <span class="ln"><span class="w ex">Çelik</span></span>
+      </span>
+    </h1>
+    <div class="dim" id="dim" aria-hidden="true"><i></i><span id="dim-n">px</span><i></i></div>
+    <div class="hero-foot">
+      <p data-i18n="hero.intro">Web uygulamaları, backend servisleri ve sıfırdan yazılmış sistemler geliştiriyorum. Gerçek sistemlerin nasıl çalıştığını, küçük sürümlerini kendim kurarak öğreniyorum.</p>
+      <div class="cta">
+        <a class="btn solid" href="#projects" data-i18n="hero.cta1">Projeleri gör</a>
+        <a class="btn" href="https://github.com/burakcelik1061-star" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec about w1" id="about" data-sec data-name-tr="Hakkımda" data-name-en="About">
+    <h2 class="h2" data-split data-i18n="about.h">Hakkımda</h2>
+    <div class="sheet" data-in="cube">
+      <p data-i18n="about.p1">Web geliştirme, backend servisleri ve robotik yazılımıyla ilgileniyorum. Bilinen ürünlerin küçük sürümlerini baştan sona yazıyorum: API, arka plan işleri, veritabanı, testler ve arayüz.</p>
+      <p data-i18n="about.p2">Son projemde bir dil modelini çalıştıran çıkarım motorunu, hazır ML kütüphanesi kullanmadan C++ ve CUDA ile yazdım.</p>
+      <dl class="areas">
+        <div><dt>Web</dt><dd data-i18n="about.web">React ve Next.js ile arayüzler, TypeScript ile uçtan uca uygulamalar.</dd></div>
+        <div><dt>Backend</dt><dd data-i18n="about.back">Go ve NestJS ile API ve worker servisleri. Kuyruk, yeniden deneme ve durum makineleri PostgreSQL üzerinde.</dd></div>
+        <div><dt data-i18n="about.sysT">Sistemler</dt><dd data-i18n="about.sys">C++, CUDA ve Rust ile düşük seviye işler. Java ve WPILib ile robot kontrol kodu.</dd></div>
+      </dl>
+    </div>
+    <div class="band" aria-hidden="true"><div class="band-row" id="band-a"></div><div class="band-row" id="band-b"></div></div>
+  </section>
+
+  <section class="projects w2" id="projects" data-sec data-name-tr="Projeler" data-name-en="Projects">
+    <div class="pin">
+      <div class="proj-head">
+        <div>
+          <h2 class="h2" data-split data-i18n="proj.h">Projeler</h2>
+          <p class="lede" data-i18n="proj.sub">Altı proje, yeniden eskiye.</p>
+        </div>
+        <p class="count" aria-hidden="true"><b id="count-n">1</b> / 6</p>
+      </div>
+      <div class="proj-body">
+      <div class="dio" id="dio" aria-hidden="true"><p class="dio-hint" id="dio-hint"></p></div>
+      <div class="stage" id="stage" tabindex="0" aria-label="Projeler" data-i18n-aria="proj.h">
+
+        <article class="card" data-p="0">
+          <div class="fig" aria-hidden="true">
+            <svg viewBox="0 0 320 150">
+              <text x="12" y="56">fp32</text><text x="12" y="124">int8</text>
+              <path class="ln1" style="stroke-width:10px" d="M72 62v-25M91 62v-43M110 62v-18M129 62v-37M148 62v-50M167 62v-28M186 62v-40M205 62v-22M224 62v-47M243 62v-32M262 62v-17M281 62v-38"/>
+              <path class="ln1" style="stroke-width:10px" d="M72 130v-25M91 130v-43M110 130v-18M129 130v-37M148 130v-50M167 130v-28M186 130v-40M205 130v-22M224 130v-47M243 130v-32M262 130v-17M281 130v-38"/>
+              <path class="ln2" d="M60 62H296M60 130H296"/>
+              <path class="ln1 amb scan" d="M64 6V136"/>
+              <text x="296" y="146" text-anchor="end" style="fill:var(--signal)">max 2.7e-5</text>
+            </svg>
+          </div>
+          <div class="body">
+            <p class="kind" data-i18n="p1.kind">Sistem programlama</p>
+            <h3>exactinfer</h3>
+            <p class="desc" data-i18n="p1.desc">Qwen3 dil modeli için sıfırdan yazılmış, doğrulanabilir bir çıkarım motoru.</p>
+            <ul class="pts">
+              <li data-i18n="p1.a">Hazır ML kütüphanesi yok. Tokenizer, GGUF ayrıştırıcı, ileri geçiş ve bütün CUDA çekirdekleri bu depoda yazıldı.</li>
+              <li data-i18n="p1.b">Kuantize ağırlıklarla, bağımsız bir fp32 uygulamasıyla en fazla 2.7e-5 farkla eşleşiyor.</li>
+              <li data-i18n="p1.c">Modelin ürettiği her araç çağrısını ayrı bir Rust süreci (bekçi) doğruluyor ve onaya bağlıyor.</li>
+            </ul>
+            <ul class="stack"><li>C++</li><li>CUDA</li><li>Rust</li></ul>
+            <div class="acts"><a class="btn solid" href="https://github.com/burakcelik1061-star/exactinfer" target="_blank" rel="noopener" data-i18n="proj.code">Koda bak</a><button class="btn" type="button" data-detail="0" data-i18n="proj.detail">Detaylar</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-p="1">
+          <div class="fig" aria-hidden="true">
+            <svg viewBox="0 0 320 150">
+              <rect class="ln1" x="14" y="46" width="72" height="58"/>
+              <path class="ln2" d="M24 62H76M24 75H76M24 88H76"/>
+              <text x="14" y="122">postgres</text>
+              <path class="ln2" d="M86 75L286 22M86 75L286 58M86 75L286 94M86 75L286 130"/>
+              <path class="ln1" d="M286 16h12v12h-12zM286 52h12v12h-12zM286 124h12v12h-12z"/>
+              <rect class="ln1 amb" x="286" y="88" width="12" height="12"/>
+              <circle class="fillp pk" r="3.5" style="offset-path:path('M86 75L286 22')"/>
+              <circle class="fillp pk b" r="3.5" style="offset-path:path('M86 75L286 58')"/>
+              <circle class="filla pk retry" r="4" style="offset-path:path('M86 75L286 94')"/>
+              <circle class="fillp pk d" r="3.5" style="offset-path:path('M86 75L286 130')"/>
+            </svg>
+          </div>
+          <div class="body">
+            <p class="kind">Backend</p>
+            <h3>Hook Mini</h3>
+            <p class="desc" data-i18n="p2.desc">Webhook teslimat servisi. Olayları imzalı isteklerle abonelere iletir, başarısız olanları yeniden dener, geçmişi saklar.</p>
+            <ul class="pts">
+              <li data-i18n="p2.a">En az bir kez teslimat: üstel bekleme, dead-letter kuyruğu ve yeniden oynatma.</li>
+              <li data-i18n="p2.b">Tek bağımlılık PostgreSQL. Kuyruk, FOR UPDATE SKIP LOCKED ile okunan bir tablo.</li>
+              <li data-i18n="p2.c">Standard Webhooks imzaları ve her bağlantıda SSRF koruması.</li>
+            </ul>
+            <ul class="stack"><li>Go</li><li>PostgreSQL</li><li>sqlc</li><li>Docker</li></ul>
+            <div class="acts"><a class="btn solid" href="https://github.com/burakcelik1061-star/hook-mini" target="_blank" rel="noopener" data-i18n="proj.code">Koda bak</a><button class="btn" type="button" data-detail="1" data-i18n="proj.detail">Detaylar</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-p="2">
+          <div class="fig" aria-hidden="true">
+            <svg viewBox="0 0 320 150">
+              <path class="ln2" d="M16 21H304M16 48H304M16 75H304M16 102H304M16 129H304M16 21V129M98 21V129M180 21V129M262 21V129M304 21V129"/>
+              <rect class="ln1" x="102" y="25" width="74" height="19"/>
+              <rect class="ln1" x="184" y="52" width="74" height="19"/>
+              <rect class="ln1" x="20" y="106" width="74" height="19"/>
+              <rect class="filla slot" x="20" y="25" width="74" height="19"/>
+            </svg>
+          </div>
+          <div class="body">
+            <p class="kind" data-i18n="p3.kind">Web, yapım aşamasında</p>
+            <h3>Booking Mini</h3>
+            <p class="desc" data-i18n="p3.desc">Calendly'nin küçük bir sürümü. Kullanıcı müsait saatlerini belirler, ziyaretçiler bunlardan birini seçip randevu alır.</p>
+            <ul class="pts">
+              <li data-i18n="p3.a">Geliştirme sürüyor, depo henüz herkese açık değil.</li>
+            </ul>
+            <ul class="stack"><li>TypeScript</li></ul>
+            <div class="acts"><button class="btn" type="button" data-detail="2" data-i18n="proj.detail">Detaylar</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-p="3">
+          <div class="fig" aria-hidden="true">
+            <svg viewBox="0 0 320 150">
+              <path class="ln2" d="M16 76H304"/>
+              <path class="ln1 beat" d="M16 76H70l8-30 10 52 9-22H150l8-30 10 52 9-22H230l8-30 10 52 9-22H304"/>
+              <path class="ln1" style="stroke-width:22px;stroke-dasharray:6 4" d="M16 124H304"/>
+              <path class="ln1 amb blink" style="stroke-width:22px;stroke-dasharray:6 4" d="M196 124H226"/>
+            </svg>
+          </div>
+          <div class="body">
+            <p class="kind">Backend</p>
+            <h3>Uptime Mini</h3>
+            <p class="desc" data-i18n="p4.desc">Servisleri izleyen ve herkese açık durum sayfası sunan çok kiracılı izleme servisi.</p>
+            <ul class="pts">
+              <li data-i18n="p4.a">Go ile iki ayrı süreç: api ve worker. Biri yeniden başlarken diğeri çalışmaya devam eder.</li>
+              <li data-i18n="p4.b">Durum makinesi anlık hataları değil, gerçek kesintileri yakalar. Olay kayıtları kendiliğinden açılıp kapanır.</li>
+              <li data-i18n="p4.c">ORM yok: goose ile migrasyon, sqlc ile kod üretimi.</li>
+            </ul>
+            <ul class="stack"><li>Go</li><li>PostgreSQL</li><li>Next.js</li><li>sqlc</li></ul>
+            <div class="acts"><a class="btn solid" href="https://github.com/burakcelik1061-star/uptime-mini-public" target="_blank" rel="noopener" data-i18n="proj.code">Koda bak</a><button class="btn" type="button" data-detail="3" data-i18n="proj.detail">Detaylar</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-p="4">
+          <div class="fig" aria-hidden="true">
+            <svg viewBox="0 0 320 150">
+              <path class="ln2" d="M14 14h92v122h-92zM114 14h92v122h-92zM214 14h92v122h-92z"/>
+              <path class="ln1" d="M22 58h76v18h-76zM22 84h76v18h-76zM122 24h76v18h-76zM222 58h76v18h-76z"/>
+              <rect class="filla mv" x="22" y="24" width="76" height="18"/>
+            </svg>
+          </div>
+          <div class="body">
+            <p class="kind">Web</p>
+            <h3>Canny Mini</h3>
+            <p class="desc" data-i18n="p5.desc">Geri bildirim panosu, herkese açık yol haritası ve gömülebilir widget sunan çok kiracılı bir platform.</p>
+            <ul class="pts">
+              <li data-i18n="p5.a">Kullanıcılar istek paylaşıp oy verir, ekip istekleri sürükle-bırak kanban panosunda yönetir.</li>
+              <li data-i18n="p5.b">Durum değişiklikleri arka plan iş kuyruğuyla oy verenlere iletilir.</li>
+              <li data-i18n="p5.c">Birim, entegrasyon ve Playwright ile uçtan uca testler.</li>
+            </ul>
+            <ul class="stack"><li>TypeScript</li><li>NestJS</li><li>Next.js</li><li>PostgreSQL</li><li>Playwright</li></ul>
+            <div class="acts"><a class="btn solid" href="https://github.com/burakcelik1061-star/canny-mini-public" target="_blank" rel="noopener" data-i18n="proj.code">Koda bak</a><button class="btn" type="button" data-detail="4" data-i18n="proj.detail">Detaylar</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-p="5">
+          <div class="fig" aria-hidden="true">
+            <svg viewBox="0 0 320 150">
+              <path class="ln2" d="M14 134H306"/>
+              <rect class="ln1" x="30" y="108" width="52" height="26"/>
+              <path class="ln1" d="M82 112l14-12"/>
+              <path class="ln2" style="stroke-dasharray:4 5" d="M96 100Q190 -46 268 46"/>
+              <path class="ln1" d="M286 134V30M250 48h36"/>
+              <ellipse class="ln1 amb" cx="268" cy="48" rx="18" ry="5"/>
+              <circle class="filla ball" r="6" style="offset-path:path('M96 100Q190 -46 268 46')"/>
+            </svg>
+          </div>
+          <div class="body">
+            <p class="kind" data-i18n="p6.kind">Robotik</p>
+            <h3 data-i18n="p6.title">FRC 7840 robot kodu</h3>
+            <p class="desc" data-i18n="p6.desc">2026 sezonu robotunda topu yerden alan intake ve basket atan atış mekanizmasının yazılımı.</p>
+            <ul class="pts">
+              <li data-i18n="p6.a">Java ve WPILib ile yazıldı.</li>
+              <li data-i18n="p6.b">Takım bu robotla Haliç Regional'ı kazandı ve Innovation in Control Award aldı.</li>
+            </ul>
+            <ul class="stack"><li>Java</li><li>WPILib</li></ul>
+            <div class="acts"><button class="btn" type="button" data-detail="5" data-i18n="proj.detail">Detaylar</button></div>
+          </div>
+        </article>
+
+      </div>
+      </div>
+      <div class="bar" id="bar" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+
+  <section class="sec skills w3" id="skills" data-sec data-name-tr="Yetenekler" data-name-en="Skills">
+    <div>
+      <h2 class="h2" data-split data-i18n="skills.h">Yetenekler</h2>
+      <p class="lede" data-in="rise" data-i18n="skills.sub">Sistemi sürükleyerek döndürebilirsin.</p>
+      <dl class="groups" data-in="rise">
+        <div data-g="lang"><dt data-i18n="skills.g1">Diller</dt><dd>JavaScript, TypeScript, Java, Python, Go, C, C++</dd></div>
+        <div data-g="fw"><dt data-i18n="skills.g2">Framework'ler</dt><dd>React, Next.js, NestJS</dd></div>
+        <div data-g="tool"><dt data-i18n="skills.g3">Veri ve araçlar</dt><dd>PostgreSQL, Docker, Git, GitHub, Linux, VS&nbsp;Code</dd></div>
+      </dl>
+    </div>
+    <div class="orb" id="orb" aria-hidden="true">
+      <span class="tag" data-g="lang">JavaScript</span><span class="tag" data-g="lang">TypeScript</span>
+      <span class="tag" data-g="tool">PostgreSQL</span><span class="tag" data-g="lang">Java</span>
+      <span class="tag" data-g="fw">React</span><span class="tag" data-g="lang">Python</span>
+      <span class="tag" data-g="tool">Docker</span><span class="tag" data-g="lang">Go</span>
+      <span class="tag" data-g="fw">Next.js</span><span class="tag" data-g="lang">C</span>
+      <span class="tag" data-g="tool">Git</span><span class="tag" data-g="lang">C++</span>
+      <span class="tag" data-g="fw">NestJS</span><span class="tag" data-g="tool">GitHub</span>
+      <span class="tag" data-g="tool">Linux</span><span class="tag" data-g="tool">VS Code</span>
+    </div>
+  </section>
+
+  <section class="milestones w4" id="milestones" data-sec data-name-tr="Kilometre taşları" data-name-en="Milestones">
+    <div class="pin">
+      <div class="path-head">
+        <h2 class="h2" data-split data-i18n="path.h">Kilometre taşları</h2>
+        <p class="count" aria-hidden="true"><b id="tl-n">1</b> / 8</p>
+      </div>
+      <ol class="tl" id="tl">
+      <li data-in="door-l"><span class="when">2025</span><h3 data-i18n="t1.h">FRC 7840 ile ilk sezon</h3><p data-i18n="t1.p">EMONER Robotics takımında programcı olarak yarışmaya başladım.</p></li>
+      <li data-in="door-r"><span class="when" data-i18n="t2.w">Mart 2026</span><h3 data-i18n="t2.h">Haliç Regional şampiyonluğu</h3><p data-i18n="t2.p">Takım eleme turlarını 3. sırada bitirdi ve Regional Winner oldu. Aynı etkinlikte Innovation in Control Award'ı aldı.</p></li>
+      <li data-in="door-l"><span class="when" data-i18n="t3.w">Nisan 2026</span><h3>Gotham Regional, New York</h3><p data-i18n="t3.p">Takım eleme turlarını 11. sırada bitirdi ve Alliance 7'nin kaptanı oldu.</p></li>
+      <li data-in="door-r"><span class="when" data-i18n="t3.w">Nisan 2026</span><h3>FIRST Championship, Houston</h3><p data-i18n="t4.p">Takım dünya şampiyonasında Galileo bölümünde yarıştı.</p></li>
+      <li data-in="door-l"><span class="when" data-i18n="t5.w">Ağustos 2026</span><h3 data-i18n="t5.h">Canny Mini ve Uptime Mini</h3><p data-i18n="t5.p">İlk iki SaaS denemem GitHub'da yayınlandı.</p></li>
+      <li data-in="door-r"><span class="when" data-i18n="t6.w">Ekim 2026</span><h3>Hook Mini</h3><p data-i18n="t6.p">14 aşamalık plan tamamlandı, son inceleme yapıldı.</p></li>
+      <li data-in="door-l"><span class="when" data-i18n="t7.w">Kasım 2026</span><h3>exactinfer</h3><p data-i18n="t7.p">Çıkarım motoru ve bekçi GitHub'da yayınlandı.</p></li>
+      <li data-in="door-r"><span class="when" data-i18n="t8.w">Sırada</span><h3>Booking Mini</h3><p data-i18n="t8.p">Randevu planlama uygulaması üzerinde çalışıyorum.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec contact w5" id="contact" data-sec data-name-tr="İletişim" data-name-en="Contact">
+    <h2 class="h2" data-split data-i18n="contact.h">İletişim</h2>
+    <p class="lede" data-in="rise" data-i18n="contact.p">Bir proje, fikir ya da soru için e-posta gönderebilirsin.</p>
+    <a class="mail" id="mail" data-in="rise" href="mailto:burakcelik1061@gmail.com">burakcelik1061@gmail.com</a>
+    <div class="cta" data-in="rise">
+      <button class="btn solid" type="button" id="copy" data-i18n="contact.copy">E-postayı kopyala</button>
+      <a class="btn" href="https://github.com/burakcelik1061-star" target="_blank" rel="noopener">github.com/burakcelik1061-star</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot w5">
+  <span>© 2026 Burak Çelik</span>
+  <span data-i18n="foot.note">HTML, CSS, JavaScript ve three.js ile elle yazıldı.</span>
+</footer>
+
+<div class="term" id="term" role="dialog" aria-label="Terminal" hidden>
+  <div class="term-bar"><span>burak@portfolio</span><button type="button" id="term-close" aria-label="Kapat" data-i18n-aria="ui.close">×</button></div>
+  <div class="term-out" id="term-out" aria-live="polite"></div>
+  <form class="term-form" id="term-form"><label class="sr-only" for="term-in" data-i18n="term.label">Komut</label><span aria-hidden="true">$</span><input id="term-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"></form>
+</div>
+
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-h" hidden>
+  <div class="detail-in">
+    <button class="btn" type="button" id="detail-close" data-i18n="ui.close">Kapat</button>
+    <p class="kind" id="detail-k"></p>
+    <h2 class="h2" id="detail-h"></h2>
+    <p class="detail-p" id="detail-p"></p>
+    <div class="flow" id="detail-flow"></div>
+    <ul class="pts" id="detail-pts"></ul>
+    <ul class="stack" id="detail-stack"></ul>
+    <div class="acts" id="detail-acts"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/letters.js"></script>
+<script src="js/scroll.js"></script>
+<script src="gl/stage.js"></script>
+<script src="gl/scene-hero.js"></script>
+<script src="gl/scene-about.js"></script>
+<script src="gl/dioramas.js"></script>
+<script src="gl/scene-projects.js"></script>
+<script src="gl/scene-skills.js"></script>
+<script src="gl/scene-tunnel.js"></script>
+<script src="gl/scene-contact.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/depthline.js"></script>
+<script src="js/orb.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/band.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

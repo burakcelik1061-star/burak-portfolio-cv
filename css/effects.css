@@ -1,0 +1,67 @@
+/* Motion layered over the readable defaults. Scripts add .step / .depth to <html> only when the
+   pinned layouts fit the viewport, and drive --e (0 → 1) from the scroll position. */
+
+/* ---------- entrances ---------- */
+[data-in]{--e:1;opacity:calc(var(--e) * 1.5);will-change:transform,opacity}
+[data-in="rise"]{transform-origin:50% 100%;transform:perspective(1100px) translate3d(0,calc((1 - var(--e)) * 70px),0) rotateX(calc((1 - var(--e)) * 42deg))}
+[data-in="cube"]{transform-origin:50% 0;transform:perspective(1500px) translate3d(0,0,calc((1 - var(--e)) * -260px)) rotateX(calc((1 - var(--e)) * -88deg))}
+[data-in="door-l"]{transform-origin:0 50%;transform:perspective(1100px) rotateY(calc((1 - var(--e)) * 80deg))}
+[data-in="door-r"]{transform-origin:100% 50%;transform:perspective(1100px) rotateY(calc((1 - var(--e)) * -80deg))}
+
+/* headings arrive letter by letter, each turning up from flat */
+[data-split]{--e:1}
+[data-split] .wd{display:inline-block;white-space:nowrap}
+[data-split] .ch{
+  --l:clamp(0,calc(var(--e) * (1 + var(--n) * .09) - var(--i) * .09),1);
+  display:inline-block;transform-origin:50% 100%;opacity:calc(var(--l) * 3);
+  transform:perspective(600px) rotateX(calc((1 - var(--l)) * -92deg)) translate3d(0,calc((1 - var(--l)) * .35em),0);
+}
+
+/* ---------- projects as a pinned stepper: 3D diorama on one side, a panel that turns over on the other ---------- */
+.step .projects{padding:0}
+.step .projects .pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;padding-top:var(--head-h)}
+.step .proj-head{padding-top:clamp(10px,2.6vh,30px);margin-bottom:0;position:relative;z-index:3}
+.step .proj-head .h2{font-size:clamp(2.1rem,7vh,5rem)}
+.step .proj-head .lede{margin-top:2px}
+.step .proj-body{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,3vw,56px);padding:0 var(--gutter);align-items:stretch}
+.step .dio{display:block;position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.dio-hint{position:absolute;left:0;bottom:7%;margin:0;font-family:var(--mono);font-size:.78rem;color:var(--fg);
+  background:color-mix(in srgb,var(--panel) 80%,transparent);padding:6px 12px;border-radius:99px;transition:opacity .3s}
+.dio-hint:empty{opacity:0}
+.step .stage{display:block;position:relative;overflow:visible;padding:0;perspective:1500px}
+.step .card{
+  position:absolute;left:0;right:0;top:50%;flex:none;will-change:transform,opacity;backface-visibility:hidden;
+  transform-origin:50% 50%;box-shadow:0 0 0 1px var(--line),0 50px 90px -40px rgba(0,0,0,.6);
+}
+.step .fig{display:none}
+.step .card h3{font-size:clamp(1.7rem,5vh,3.2rem)}
+.step .body{gap:10px;padding:clamp(16px,2vw,28px)}
+.step .pts{font-size:.9em}
+@media (max-height:800px){.step .pts{font-size:.84em;gap:5px}.step .body{gap:8px;padding:16px 22px}.step .proj-head .lede{display:none}}
+.step .bar{display:block;flex:none;height:3px;background:var(--line);margin:0 var(--gutter) clamp(14px,3vh,28px);border-radius:3px;overflow:hidden}
+.step .bar i{display:block;height:100%;background:var(--acc);transform-origin:left;transform:scaleX(var(--p,0))}
+.projects,.projects .card,.projects .btn,.projects .kind,.dio-hint{transition:color .5s,background-color .5s,border-color .5s,box-shadow .5s}
+@media (max-width:899px){
+  .step .proj-body{grid-template-columns:1fr;grid-template-rows:minmax(0,36fr) minmax(0,64fr);gap:6px}
+  .step .card{top:0}
+  .step .body{gap:8px;padding:16px}
+  .step .pts{font-size:.86em;gap:5px}
+  .step .proj-head .lede{display:none}
+  .dio-hint{bottom:4%;font-size:.7rem}
+}
+
+/* ---------- milestones as a run through depth ---------- */
+.depth .milestones{padding:0}
+.depth .milestones .pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;padding-top:var(--head-h)}
+.depth .path-head{padding-top:clamp(10px,2.6vh,30px);margin-bottom:0;position:relative;z-index:300}
+.depth .path-head .h2{font-size:clamp(2.1rem,7vh,5rem)}
+.depth .path-head .count{display:block}
+.depth .tl{flex:1;min-height:0;margin:0;display:block;perspective:1000px;perspective-origin:50% 50%}
+.depth .tl::before,.depth .tl::after{display:none}
+.depth .tl li,.depth .tl li:nth-child(odd){
+  position:absolute;left:50%;top:50%;width:min(84vw,540px);margin:0;text-align:left;
+  will-change:transform,opacity;box-shadow:0 0 0 1px var(--line),0 30px 70px -30px rgba(0,0,0,.7);
+}
+.depth .tl li::before,.depth .tl li:nth-child(odd)::before{display:none}
+.depth .tl li.cur{box-shadow:0 0 0 2px var(--acc),0 30px 70px -30px rgba(0,0,0,.7)}
+.depth .tl h3{font-size:clamp(1.5rem,2.8vw,2.3rem)}

@@ -1,65 +1,49 @@
-# Burak Çelik — Portfolyo
+# Burak Çelik — Portfolio
 
-Kişisel portfolyo ve CV sitem. Çerçeve yok, derleme adımı yok: elle yazılmış HTML, CSS ve JavaScript, 3D için [three.js](https://threejs.org/).
+My personal portfolio and CV site. No framework and no build step: hand-written HTML, CSS and JavaScript, with [three.js](https://threejs.org/) for the 3D.
 
-*English below.*
+## What's inside
 
-## Neler var
+- **Six colour worlds.** Every section has its own palette and its own 3D scene. The ground is a fluid shader that reacts to the pointer, and each section boundary is drawn with a different edge shape.
+- **Intro.** The name is built from real cubes sampled from the display typeface. Each cube is on a spring to its place; the pointer pushes them apart and they settle back.
+- **About.** Floating keycaps that press down when the pointer passes over them.
+- **Projects.** A pinned stepper driven by scroll. Each project has a clickable 3D diorama, its own colour and a detail screen.
+- **Skills.** A draggable orbit system with the technologies on three rings.
+- **Milestones.** A tunnel you fly through; entries arrive from depth and pass the camera.
+- **Contact.** A paper plane that follows the pointer.
+- Turkish / English switch, a small terminal (type `help`), reduced-motion support and keyboard navigation.
 
-- **Altı renk dünyası.** Her bölümün kendi rengi ve kendi 3D sahnesi var. Zemin, fareye tepki veren akışkan bir shader; bölüm sınırlarının her biri farklı bir kenar şekliyle çiziliyor.
-- **Giriş.** İsim, yazı tipinden örneklenen gerçek küplerden kuruluyor. Her küp yerine bir yayla bağlı; fare küpleri iter, bırakınca geri toplanırlar.
-- **Hakkımda.** Fare üstüne gelince basılan, süzülen klavye tuşları.
-- **Projeler.** Kaydırdıkça adım adım ilerleyen bir sahne. Her projenin tıklanabilir bir 3D dioraması, kendi rengi ve bir detay ekranı var.
-- **Yetenekler.** Üç halkada dönen, sürüklenebilen bir yörünge sistemi.
-- **Kilometre taşları.** İçinden uçulan bir tünel; maddeler derinlikten gelip kameranın yanından geçiyor.
-- **İletişim.** Fareyi takip eden bir kağıt uçak.
-- Türkçe / İngilizce geçişi, küçük bir terminal (`help` yaz), "hareketi azalt" desteği, klavye ile gezinme.
+## Running it
 
-## Çalıştırma
-
-Statik bir site. Klasörü herhangi bir statik sunucuyla aç:
+It is a static site. Serve the folder with any static server:
 
 ```bash
 python3 -m http.server 8000
 # http://localhost:8000
 ```
 
-`index.html` dosyasını doğrudan çift tıklayarak açmak fontların yüklenmesini engelleyebilir; bir sunucu kullan.
+Opening `index.html` directly from disk can block the fonts from loading, so use a server.
 
-## Yapı
+## Structure
 
 ```
-index.html        sayfa ve içerik (Türkçe metin burada)
-css/              base (renk dünyaları), sections, effects, chrome, fonts
+index.html        page and content (the Turkish copy lives here)
+css/              base (colour worlds), sections, effects, chrome, fonts
 js/               core, i18n, scroll, projects, depthline, terminal, loader ...
-gl/               stage (renderer + zemin shader'ı) ve bölüm başına bir sahne
-fonts/            Bricolage Grotesque ve Spline Sans Mono (SIL OFL)
+gl/               stage (renderer + ground shader) and one scene per section
+fonts/            Bricolage Grotesque and Spline Sans Mono (SIL OFL)
 ```
 
-Her bölümün sahnesi `gl/scene-*.js` içinde ve kendini `BC.gl.add(index, {scene, cam, update})` ile kaydediyor. İngilizce metinler `js/i18n.js` ve `js/data.js` içinde.
+Each section's scene lives in `gl/scene-*.js` and registers itself with `BC.gl.add(index, {scene, cam, update})`. The English copy is in `js/i18n.js` and `js/data.js`.
 
-## Yayınlama
+## Deploying
 
-GitHub Pages: *Settings → Pages → Deploy from a branch → main / root*. Başka bir ayar gerekmez.
+GitHub Pages: *Settings → Pages → Deploy from a branch → main / root*. Nothing else to configure.
 
-## Lisanslar
+## Licences
 
-Fontlar SIL Open Font License 1.1 ile lisanslı (`fonts/` içindeki metinler). three.js MIT lisanslı ve CDN üzerinden yükleniyor.
+The fonts are licensed under the SIL Open Font License 1.1 (texts in `fonts/`). three.js is MIT licensed and loaded from a CDN.
 
----
-
-## English
-
-My personal portfolio and CV site. No framework and no build step: hand-written HTML, CSS and JavaScript, with [three.js](https://threejs.org/) for the 3D.
-
-- Six colour worlds, one per section, each with its own 3D scene over a fluid shader ground.
-- A name built from spring-loaded cubes that the pointer pushes apart.
-- A pinned project stepper with a clickable 3D diorama, a colour and a detail screen per project.
-- An orbit system for skills, a tunnel for milestones, a paper plane for contact.
-- Turkish / English switch, a small terminal (type `help`), reduced-motion support, keyboard navigation.
-
-Run it with any static server (`python3 -m http.server 8000`). Deploy with GitHub Pages from `main` / root.
-
-## İletişim
+## Contact
 
 burakcelik1061@gmail.com · [github.com/burakcelik1061-star](https://github.com/burakcelik1061-star)
